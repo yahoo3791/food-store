@@ -1,4 +1,12 @@
+@import "@/assets/scss/base/_reset.scss";
 @import "~bootstrap/scss/functions";
-@import "@/assets/scss/vendors/_variables.scss";
+@import "@/assets/scss/vendors/_bootstrapVariables.scss";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/mixins";
+@import "@/assets/scss/abstracts/_variables.scss";
+@import "@/assets/scss/themes/_themes.scss";
+@import "@/assets/scss/base/_font.scss";
+@import "@/assets/scss/components/_btn.scss";
+@import "@/assets/scss/layout/_navbar.scss";
+@import "@/assets/scss/layout/_footer.scss";
+@import "@/assets/scss/pages/_homepage.scss";

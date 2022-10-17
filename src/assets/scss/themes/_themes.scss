@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+html {
+  font-size: 16px;
+}
+body {
+  background-color: $secondary-00;
+  font-family: 'Noto Sans TC', sans-serif !important;
+  font-size: 1rem;
+  color: $secondary-EE;
+}
+.title {
+  color: $base-color;
+  font-size: 2.25rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  &::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 1px;
+    background-color: $base-color;
+  }
+}
+.href-none {
+  text-decoration: none;
+  color: $secondary-EE;
+  &:hover,
+  &:active {
+    color: $secondary-EE;
+  }
+}

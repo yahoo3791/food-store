@@ -1,0 +1,57 @@
+/*
+首頁導引效果按鈕 start
+*/
+.slide-btn {
+  width: 40px;
+  height: 70px;
+  border: solid 5px $base-color;
+  border-radius: 20px;
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 15px;
+    border-radius: 2px;
+    background-color: $base-color;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    animation: arrow-btn 2s .3s infinite ease-in;
+  }
+}
+@keyframes arrow-btn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 200%);
+  }
+}
+/*
+首頁導引效果按鈕 end
+*/
+/*
+全局按鈕 start
+*/
+.tour-btn {
+  display: inline-block;
+  color: $base-color;
+  border: 3px solid $base-color;
+  border-radius: 5px;
+  padding: 5px 25px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all .3s;
+  cursor: pointer;
+  &:active,
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+  }
+}
+/*
+全局按鈕 end
+*/
