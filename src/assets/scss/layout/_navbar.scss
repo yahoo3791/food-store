@@ -15,6 +15,7 @@
     }
   }
   .serve-shadow {
+    background: $secondary-00;
     box-shadow: 1px 1px 1px $base-color;
   }
   .serve-overlay {
@@ -72,9 +73,10 @@
     transform: translateY(-1000px);
   }
   .navbarOverlay {
-    transition: all .3s;
-    transition-delay: .3s;
-    height: auto;
+    transition: opacity 0.3s linear;
+    transition: transform 0.3s ease-out;
+    transform: none;
+    height: 100vh;
     transform: translateY(0px);
     box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.3);
   }

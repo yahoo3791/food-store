@@ -1,10 +1,11 @@
 <template>
 <div class="container-fulid">
-  <div class="header d-flex align-items-center justify-content-md-between position-relative">
-    <div class="logo cursor-pointer px-2 py-3">
+  <div class="header d-flex align-items-center justify-content-md-between position-relative"
+    style="z-index:10000">
+    <a href="/" class="d-block logo cursor-pointer px-2 py-3">
       <img src="@/assets/image/logo/logo.png"
         alt="LOGO-Image">
-    </div>
+    </a>
     <!-- sm none -->
     <ul class="d-none d-md-flex align-items-center">
       <li class="position-relative hover-block">
@@ -19,7 +20,7 @@
         <div class="serve-overlay position-absolute left-0 serve-shadow"
           style="top:60px"
           ref="product">
-          <a href=""
+          <a href="/#/shop"
             class="href-none d-block px-3 py-2">
             全部商品
           </a>
@@ -49,12 +50,17 @@
                   <ul class="p-0 text-center"
                   :class="{'d-none':chineseBoolean}">
                     <li>
-                      <a href=""
+                      <a href="/#/chinese/chineseall"
+                        class="d-block href-none py-1">全部
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/#/chinese/chinesemeal"
                         class="d-block href-none py-1">餐點
                       </a>
                     </li>
                     <li>
-                      <a href=""
+                      <a href="/#/chinese/chinesedessert"
                         class="d-block href-none py-1">甜點
                       </a>
                     </li>
@@ -73,12 +79,17 @@
                   <ul class="p-0 text-center"
                   :class="{'d-none':westernBoolean}">
                     <li>
-                      <a href=""
+                      <a href="/#/western/westernall"
+                        class="d-block href-none py-1">全部
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/#/western/westernmeal"
                         class="d-block href-none py-1">餐點
                       </a>
                     </li>
                     <li>
-                      <a href=""
+                      <a href="/#/western/westerndessert"
                         class="d-block href-none py-1">甜點
                       </a>
                     </li>
@@ -100,37 +111,48 @@
         <div class="serve-overlay position-absolute left-0 serve-shadow"
           style="top:60px"
           ref="other">
-          <a href=""
+          <a href="/#/about" class="href-none d-block px-3 py-2">
+            關於我們
+          </a>
+          <a href="/#/faq"
             class="href-none d-block px-3 py-2">
             常見問題
           </a>
-          <a href=""
+          <a href="/#/contact"
             class="href-none d-block px-3 py-2">
             聯絡我們
           </a>
-          <a href=""
+          <a href="#"
             class="href-none d-block px-3 py-2">
             隱私權政策
           </a>
         </div>
       </li>
       <li>
-        <a href=""
-          class="d-inline-block px-2 py-3">
+        <div
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+          class="d-inline-block px-2 py-3 cursor-pointer">
           <img src="@/assets/image/icon/cart.svg"
             alt="cart-Image">
-        </a>
+        </div>
       </li>
       <li>
-        <a href=""
-          class="d-inline-block px-2 py-3">
+        <div
+          class="d-inline-block px-2 py-3"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasFav"
+          aria-controls="offcanvasFav">
           <img src="@/assets/image/icon/favorite.svg"
             alt="favorite-Image">
-        </a>
+        </div>
       </li>
       <li>
         <a href=""
-          class="d-inline-block px-2 py-3">
+          class="d-inline-block px-2 py-3"
+          @click.prevent="openLogin()"
+          @keypress="openLogin()">
           <img src="@/assets/image/icon/person.svg"
             alt="person-Image">
         </a>
@@ -140,17 +162,27 @@
     <!-- media md down -->
     <ul class="sm-icon d-flex d-md-none align-items-center ms-auto ps-0">
       <li>
-        <a href="" class="d-inline-block px-1 py-2">
+        <div
+        class="d-inline-block px-1 py-2 cursor-pointer"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">
           <img src="@/assets/image/icon/cart.svg" alt="cart-Image">
-        </a>
+        </div>
       </li>
       <li>
-        <a href="" class="d-inline-block px-1 py-2">
+        <div
+        class="d-inline-block px-1 py-2"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasFav"
+        aria-controls="offcanvasFav">
           <img src="@/assets/image/icon/favorite.svg" alt="favorite-Image">
-        </a>
+        </div>
       </li>
       <li>
-        <a href="" class="d-inline-block px-1 py-2">
+        <a href="" class="d-inline-block px-1 py-2"
+          @click.prevent="openLogin()"
+          @keypress="openLogin()">
           <img src="@/assets/image/icon/person.svg" alt="person-Image">
         </a>
       </li>
@@ -165,7 +197,7 @@
     <!-- media md down -->
   </div>
   <div class="d-block d-md-none navbarHidden position-absolute top-0 left-0 right-0 w-100"
-    style="z-index:1000;"
+    style="z-index:10001;"
     :class="{'navbarOverlay':navbarBoolean}">
     <div class="container-fulid">
       <div class="header d-flex align-items-center justify-content-end">
@@ -192,12 +224,10 @@
           <ul class="d-none px-0 text-base"
             ref="productSm">
             <li>
-              <a href="" class="d-block href-none px-3 py-2">
+              <router-link to="/shop"
+              class="d-block href-none px-3 py-2">
                 全部商品
-                <img src="@/assets/image/icon/Combined-shape.png"
-                  alt="Combined-shape"
-                  style="opacity:0">
-              </a>
+              </router-link>
             </li>
             <li>
               <a href=""
@@ -221,14 +251,16 @@
                   <ul class="d-none px-0"
                     ref="chineseSm">
                     <li>
-                      <a href="" class="d-block href-none py-1">
-                        餐點
-                      </a>
+                      <router-link to="/chinese/chineseall"
+                      class="d-block href-none py-1">全部</router-link>
                     </li>
                     <li>
-                      <a href="" class="d-block href-none py-1">
-                        甜點
-                      </a>
+                      <router-link to="/chinese/chinesemeal"
+                      class="d-block href-none py-1">餐點</router-link>
+                    </li>
+                    <li>
+                      <router-link to="/chinese/chinesedessert"
+                      class="d-block href-none py-1">甜點</router-link>
                     </li>
                   </ul>
                 </li>
@@ -243,12 +275,17 @@
                   <ul class="d-none px-0"
                     ref="westernSm">
                     <li>
-                      <a href="" class="d-block href-none py-1">
+                      <a href="/#/western/westernall" class="d-block href-none py-1">
+                        全部
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/#/western/westernmeal" class="d-block href-none py-1">
                         餐點
                       </a>
                     </li>
                     <li>
-                      <a href="" class="d-block href-none py-1">
+                      <a href="/#/western/westerndessert" class="d-block href-none py-1">
                         甜點
                       </a>
                     </li>
@@ -270,17 +307,22 @@
           <ul class="d-none px-0 text-base"
             ref="otherSm">
             <li>
-              <a href="" class="d-block href-none px-3 py-2">
+              <a href="/#/about" class="d-block href-none px-3 py-2">
+                關於我們
+              </a>
+            </li>
+            <li>
+              <a href="/#/faq" class="d-block href-none px-3 py-2">
                 常見問題
               </a>
             </li>
             <li>
-              <a href="" class="d-block href-none px-3 py-2">
+              <a href="/#/contact" class="d-block href-none px-3 py-2">
                 聯絡我們
               </a>
             </li>
             <li>
-              <a href="" class="d-block href-none px-3 py-2">
+              <a href="#" class="d-block href-none px-3 py-2">
                 隱私權政策
               </a>
             </li>
@@ -290,9 +332,53 @@
     </div>
   </div>
 </div>
+<div class="container-fulid">
+  <div class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+  style="z-index:100000;">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close text-reset"
+      data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container">
+        <div class="title">購物車</div>
+        <a href="" @click.prevent class="tour-btn">繼續購物</a>
+        <a href="" @click.prevent class="tour-btn">結帳</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fulid">
+  <div class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasFav"
+  aria-labelledby="offcanvasFavLabel"
+    style="z-index:100000;">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasFavLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close text-reset"
+      data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container">
+        <div class="title">收藏</div>
+        <!-- <a href="" @click.prevent class="tour-btn">繼續購物</a>
+        <a href="" @click.prevent class="tour-btn">結帳</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+<LoginModal ref="modal"></LoginModal>
 </template>
 
 <script>
+import LoginModal from '@/components/Front/LoginModal.vue';
+import 'bootstrap/js/dist/offcanvas';
+
 export default {
   data() {
     return {
@@ -302,7 +388,13 @@ export default {
       navbarBoolean: false,
     };
   },
+  components: {
+    LoginModal,
+  },
   methods: {
+    openLogin() {
+      this.$refs.modal.modalShow();
+    },
   },
 };
 </script>

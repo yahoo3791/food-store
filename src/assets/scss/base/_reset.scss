@@ -134,7 +134,6 @@ table {
 }
 *,*::before,*::after {
   box-sizing: border-box;
-  animation-fill-mode: none !important;
 }
 html {
   scroll-behavior: smooth;

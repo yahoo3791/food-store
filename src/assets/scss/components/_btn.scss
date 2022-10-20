@@ -24,8 +24,17 @@
     opacity: 0;
     transform: translate(-50%, 0%);
   }
-  100% {
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
     transform: translate(-50%, 200%);
   }
 }
@@ -37,6 +46,7 @@
 */
 .tour-btn {
   display: inline-block;
+  text-decoration: none;
   color: $base-color;
   border: 3px solid $base-color;
   border-radius: 5px;
@@ -50,8 +60,38 @@
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50px;
+    color: $base-color;
   }
 }
 /*
 全局按鈕 end
 */
+.arrowUp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 10000;
+}
+@include media-breakpoint-down(md) {
+  .slide-btn {
+    width: 30px;
+    height: 50px;
+    border: solid 2px $base-color;
+    &:after {
+      content: '';
+      width: 3px;
+      height: 10px;
+    }
+  }
+  .arrowUp-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .tour-btn {
+    font-size: 1rem;
+  }
+  .filp-btn {
+    width: 35px;
+    height: 35px;
+  }
+}

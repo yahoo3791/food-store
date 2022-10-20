@@ -1,6 +1,21 @@
 .footer {
+  text-align: center;
   font-size: 1.875rem;
   color: $secondary-EE;
   font-family: 'Caveat', cursive, sans-serif;
   letter-spacing: 0.025em;
+  height: 80px;
+  line-height: 80px;
+}
+@include media-breakpoint-down(md) {
+  .footer {
+    font-size: 1.25rem;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+@media (max-width: 320px) {
+  .footer {
+    font-size: 1rem;
+  }
 }
